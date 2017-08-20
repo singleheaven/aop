@@ -1,10 +1,14 @@
 package test;
 
+import static test.Test.TestDerived.getFixedIndex;
+
 public class Test {
     static public class TestBase {
         static {
             int x = 0;
         }
+
+        static int y = 1;
 
         int base = 0;
 
@@ -20,6 +24,7 @@ public class Test {
             super(0);
             this.derived = 1000;
 
+            TestBase.y = 2;
         }
 
         public void testMethod() {
@@ -41,5 +46,7 @@ public class Test {
         derived.testMethod();
         derived.base = 1;
         System.out.println("Test end...");
+
+        getFixedIndex();
     }
 }
