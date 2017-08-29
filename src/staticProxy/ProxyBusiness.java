@@ -26,7 +26,7 @@ public class ProxyBusiness implements IBusiness, IBusiness2 {
     @Override
     public void doSomeThing2() {
         try {
-            Method m = (h.target).getClass().getMethod("doSomeThing", null);
+            Method m = (h.target).getClass().getMethod("doSomeThing2", null);
             h.invoke(this, m, null);
         } catch (Throwable e) {
             // 异常处理 1（略）
@@ -36,7 +36,7 @@ public class ProxyBusiness implements IBusiness, IBusiness2 {
     @Override
     public boolean doSomeThing() {
         try {
-            Method m = (h.target).getClass().getMethod("doSomeThing2", null);
+            Method m = (h.target).getClass().getMethod("doSomeThing", null);
             return (Boolean) h.invoke(this, m, null);
         } catch (Throwable e) {
             // 异常处理 1（略）
